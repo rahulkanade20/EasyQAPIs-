@@ -167,38 +167,6 @@ ALTER TABLE ONLY public.tenant ALTER COLUMN tenant_id SET DEFAULT nextval('publi
 
 
 --
--- Data for Name: base; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.base (status, created_at, updated_at) FROM stdin;
-\.
-
-
---
--- Data for Name: branch; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.branch (status, created_at, updated_at, branch_id, name, address, branch_admin_email_id, t_id) FROM stdin;
-\.
-
-
---
--- Data for Name: queue; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.queue (status, created_at, updated_at, queue_id, name, ewt, queue_admin_email_id, b_id) FROM stdin;
-\.
-
-
---
--- Data for Name: tenant; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.tenant (status, created_at, updated_at, tenant_id, name, tenant_admin_email_id) FROM stdin;
-\.
-
-
---
 -- Name: branch_branch_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 

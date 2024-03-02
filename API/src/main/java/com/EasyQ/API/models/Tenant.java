@@ -84,4 +84,16 @@ public class Tenant {
     public void setEmail_address(String email_address) {
         this.email_address = email_address;
     }
+
+    @Override
+    public String toString() {
+        return "Tenant{" +
+                "id=" + id +
+                ", status=" + status +
+                ", creation_time='" + creation_time + '\'' +
+                ", updation_time='" + updation_time + '\'' +
+                ", name='" + name + '\'' +
+                ", email_address='" + email_address + '\'' +
+                '}';
+    }
 }

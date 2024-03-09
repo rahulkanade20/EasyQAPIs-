@@ -2,8 +2,6 @@ package com.EasyQ.API.controllers;
 
 import com.EasyQ.API.models.Tenant;
 import com.EasyQ.API.services.TenantService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -14,8 +12,6 @@ import java.util.Optional;
 @RequestMapping("/tenants")
 public class TenantController {
     private final TenantService tenantService;
-
-    Logger logger = LoggerFactory.getLogger(TenantController.class);
 
     public TenantController(TenantService tenantService) {
         this.tenantService = tenantService;

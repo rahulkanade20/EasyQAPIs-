@@ -1,15 +1,14 @@
 package com.EasyQ.API.models;
 
 import jakarta.persistence.*;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="tenant")
-public class Tenant {
+@Table(name="branch")
+public class Branch {
     @Id
-    @Column(name="tenant_id")
+    @Column(name="branch_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -25,19 +24,42 @@ public class Tenant {
     @Column(name="name")
     private String name;
 
-    @Column(name="tenant_admin_email_id")
+    @Column(name="address")
+    private String address;
+
+    @Column(name="branch_admin_email_id")
     private String email_address;
 
-    public Tenant() {
-    }
+    @Column(name="t_id")
+    private long tenant_id;
 
-    public Tenant(long id, boolean status, LocalDateTime creation_time, LocalDateTime updation_time, String name, String email_address) {
+    public Branch(long id, boolean status, LocalDateTime creation_time, LocalDateTime updation_time, String name, String address, String email_address, long tenant_id) {
         this.id = id;
         this.status = status;
         this.creation_time = creation_time;
         this.updation_time = updation_time;
         this.name = name;
+        this.address = address;
         this.email_address = email_address;
+        this.tenant_id = tenant_id;
+    }
+
+    public Branch() {
+
+    }
+
+    @Override
+    public String toString() {
+        return "Branch{" +
+                "id=" + id +
+                ", status=" + status +
+                ", creation_time='" + creation_time + '\'' +
+                ", updation_time='" + updation_time + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", email_address='" + email_address + '\'' +
+                ", tenant_id=" + tenant_id +
+                '}';
     }
 
     public long getId() {
@@ -80,6 +102,14 @@ public class Tenant {
         this.name = name;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getEmail_address() {
         return email_address;
     }
@@ -88,15 +118,11 @@ public class Tenant {
         this.email_address = email_address;
     }
 
-    @Override
-    public String toString() {
-        return "Tenant{" +
-                "id=" + id +
-                ", status=" + status +
-                ", creation_time='" + creation_time + '\'' +
-                ", updation_time='" + updation_time + '\'' +
-                ", name='" + name + '\'' +
-                ", email_address='" + email_address + '\'' +
-                '}';
+    public long getTenant_id() {
+        return tenant_id;
+    }
+
+    public void setTenant_id(long tenant_id) {
+        this.tenant_id = tenant_id;
     }
 }

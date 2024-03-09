@@ -216,7 +216,7 @@ ALTER TABLE ONLY public.tenant
 --
 
 ALTER TABLE ONLY public.branch
-    ADD CONSTRAINT fk_constraint FOREIGN KEY (t_id) REFERENCES public.tenant(tenant_id);
+    ADD CONSTRAINT fk_constraint1 FOREIGN KEY (t_id) REFERENCES public.tenant(tenant_id);
 
 
 --

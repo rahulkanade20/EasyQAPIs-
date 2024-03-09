@@ -39,8 +39,9 @@ public class TenantService {
 
     public void addTenant(Tenant t) {
         logger.info("adding tenant ...");
-        String timeStampString = LocalDateTime.now().toString();
-        t.setCreation_time(timeStampString);
+//        String timeStampString = LocalDateTime.now().toString();
+//        t.setCreation_time(timeStampString);
+        t.setCreation_time(LocalDateTime.now());
         t.setUpdation_time(null);
         tenantRepository.save(t);
     }
@@ -63,12 +64,13 @@ public class TenantService {
                 }
             });
             if(flag.get() == 1) {
-                String timeStampString = LocalDateTime.now().toString();
-                tenant.get().setUpdation_time(timeStampString);
+//                String timeStampString = LocalDateTime.now().toString();
+//                tenant.get().setUpdation_time(timeStampString);
+                tenant.get().setUpdation_time(LocalDateTime.now());
                 tenantRepository.save(tenant.get());
             }
         } catch (NoSuchElementException e) {
-            logger.info(e.toString());
+            logger.error(e.toString());
         }
     }
 

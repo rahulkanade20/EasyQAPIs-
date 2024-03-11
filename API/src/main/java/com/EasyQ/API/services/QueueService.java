@@ -18,13 +18,16 @@ import java.util.Optional;
 public class QueueService {
     Logger logger = LoggerFactory.getLogger(QueueService.class);
 
-    @Autowired
-    public QueueMapper queueMapper;
+//    @Autowired
+//    public QueueMapper queueMapper; ... can be used but constructor injection preferred over field injection.
+
+    private final QueueMapper queueMapper;
 
     private final QueueRepository queueRepository;
 
-    public QueueService(QueueRepository queueRepository) {
+    public QueueService(QueueRepository queueRepository, QueueMapper queueMapper) {
         this.queueRepository = queueRepository;
+        this.queueMapper = queueMapper;
     }
 
     public List<QueueDto> getAllQueues() {

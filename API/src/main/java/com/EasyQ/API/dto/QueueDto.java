@@ -1,5 +1,7 @@
 package com.EasyQ.API.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class QueueDto {
     private Long id;
     private Boolean status;
@@ -64,10 +66,12 @@ public class QueueDto {
         this.updation_time = updation_time;
     }
 
+    @JsonProperty("queue_name")
     public String getName() {
         return name;
     }
 
+    @JsonProperty("queue_name")
     public void setName(String name) {
         this.name = name;
     }

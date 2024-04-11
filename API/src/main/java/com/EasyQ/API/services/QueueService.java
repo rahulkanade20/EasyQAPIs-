@@ -8,6 +8,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+@Service
 public class QueueService {
     Logger logger = LoggerFactory.getLogger(QueueService.class);
 
@@ -50,6 +52,7 @@ public class QueueService {
         QueueDto queue = new QueueDto();
         try {
             Optional<Queue> q = queueRepository.findById(id);
+            if(q.isEmpty()) return null;
             BeanUtils.copyProperties(queue, q.get());
         } catch(Exception e) {
             logger.error(e.toString());

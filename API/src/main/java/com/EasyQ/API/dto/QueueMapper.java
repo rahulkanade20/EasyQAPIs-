@@ -1,6 +1,6 @@
 package com.EasyQ.API.dto;
 
-import com.EasyQ.API.models.Queue;
+import com.EasyQ.API.model.Queue;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

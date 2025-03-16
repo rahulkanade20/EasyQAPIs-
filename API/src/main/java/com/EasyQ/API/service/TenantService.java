@@ -1,6 +1,6 @@
-package com.EasyQ.API.services;
+package com.EasyQ.API.service;
 
-import com.EasyQ.API.models.Tenant;
+import com.EasyQ.API.model.Tenant;
 import com.EasyQ.API.repository.TenantRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

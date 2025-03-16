@@ -1,11 +1,11 @@
 package com.EasyQ.API.controllers;
 
 import com.EasyQ.API.dto.BranchDto;
-import com.EasyQ.API.exceptions.UnprocessableRequestException;
-import com.EasyQ.API.models.Branch;
-import com.EasyQ.API.models.Tenant;
-import com.EasyQ.API.services.BranchService;
-import com.EasyQ.API.services.TenantService;
+import com.EasyQ.API.exception.UnprocessableRequestException;
+import com.EasyQ.API.model.Branch;
+import com.EasyQ.API.model.Tenant;
+import com.EasyQ.API.service.BranchService;
+import com.EasyQ.API.service.TenantService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -18,9 +18,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.EasyQ.API.Utils.Constants.*;
-import static com.EasyQ.API.Utils.ErrorConstants.*;
-import static com.EasyQ.API.Utils.ErrorConstants.CONFLICTING_REQUEST_ERROR_DESCRIPTION;
+import static com.EasyQ.API.util.Constants.*;
+import static com.EasyQ.API.util.ErrorConstants.*;
+import static com.EasyQ.API.util.ErrorConstants.CONFLICTING_REQUEST_ERROR_DESCRIPTION;
 
 @RestController
 @RequestMapping(value = "/branches")

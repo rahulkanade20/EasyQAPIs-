@@ -1,14 +1,14 @@
-package com.EasyQ.API.models;
+package com.EasyQ.API.model;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="queue")
-public class Queue {
+@Table(name="tenant")
+public class Tenant {
     @Id
-    @Column(name="queue_id")
+    @Column(name="tenant_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -24,42 +24,19 @@ public class Queue {
     @Column(name="name")
     private String name;
 
-    @Column(name="ewt")
-    private Long ewt;
-
-    @Column(name="queue_admin_email_id")
+    @Column(name="tenant_admin_email_id")
     private String email_address;
 
-    @Column(name="b_id")
-    private long branch_id;
-
-    public Queue() {
-
+    public Tenant() {
     }
 
-    public Queue(long id, boolean status, LocalDateTime creation_time, LocalDateTime updation_time, String name, Long ewt, String email_address, long branch_id) {
+    public Tenant(long id, boolean status, LocalDateTime creation_time, LocalDateTime updation_time, String name, String email_address) {
         this.id = id;
         this.status = status;
         this.creation_time = creation_time;
         this.updation_time = updation_time;
         this.name = name;
-        this.ewt = ewt;
         this.email_address = email_address;
-        this.branch_id = branch_id;
-    }
-
-    @Override
-    public String toString() {
-        return "Queue{" +
-                "id=" + id +
-                ", status=" + status +
-                ", creation_time=" + creation_time +
-                ", updation_time=" + updation_time +
-                ", name='" + name + '\'' +
-                ", ewt=" + ewt +
-                ", email_address='" + email_address + '\'' +
-                ", branch_id=" + branch_id +
-                '}';
     }
 
     public long getId() {
@@ -102,14 +79,6 @@ public class Queue {
         this.name = name;
     }
 
-    public Long getEwt() {
-        return ewt;
-    }
-
-    public void setEwt(Long ewt) {
-        this.ewt = ewt;
-    }
-
     public String getEmail_address() {
         return email_address;
     }
@@ -118,11 +87,15 @@ public class Queue {
         this.email_address = email_address;
     }
 
-    public long getBranch_id() {
-        return branch_id;
-    }
-
-    public void setBranch_id(long branch_id) {
-        this.branch_id = branch_id;
+    @Override
+    public String toString() {
+        return "Tenant{" +
+                "id=" + id +
+                ", status=" + status +
+                ", creation_time='" + creation_time + '\'' +
+                ", updation_time='" + updation_time + '\'' +
+                ", name='" + name + '\'' +
+                ", email_address='" + email_address + '\'' +
+                '}';
     }
 }

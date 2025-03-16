@@ -1,4 +1,4 @@
-package com.EasyQ.API.Utils;
+package com.EasyQ.API.util;
 
 public class ErrorConstants {
     public static final String NOT_FOUND_ERROR_DESCRIPTION = "The requested resource with ID {0} was not found.";

@@ -1,13 +1,12 @@
-package com.EasyQ.API.services;
+package com.EasyQ.API.service;
 
 import com.EasyQ.API.dto.QueueDto;
 import com.EasyQ.API.dto.QueueMapper;
-import com.EasyQ.API.models.Queue;
+import com.EasyQ.API.model.Queue;
 import com.EasyQ.API.repository.QueueRepository;
 import org.apache.commons.beanutils.BeanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package com.EasyQ.API.models;
+package com.EasyQ.API.model;
 
 import jakarta.persistence.*;
 

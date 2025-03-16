@@ -1,4 +1,4 @@
-package com.EasyQ.API.exceptions;
+package com.EasyQ.API.exception;
 
 import java.time.LocalDateTime;
 

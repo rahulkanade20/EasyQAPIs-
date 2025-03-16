@@ -1,9 +1,8 @@
-package com.EasyQ.API.services;
+package com.EasyQ.API.service;
 
 import com.EasyQ.API.dto.BranchDto;
 import com.EasyQ.API.dto.BranchMapper;
-import com.EasyQ.API.models.Branch;
-import com.EasyQ.API.models.Tenant;
+import com.EasyQ.API.model.Branch;
 import com.EasyQ.API.repository.BranchRepository;
 
 import org.slf4j.Logger;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class BranchService {

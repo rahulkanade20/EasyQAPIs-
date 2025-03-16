@@ -1,12 +1,12 @@
 package com.EasyQ.API.controllers;
 
-import com.EasyQ.API.exceptions.NotFoundException;
-import com.EasyQ.API.exceptions.ServerException;
-import com.EasyQ.API.exceptions.UnprocessableRequestException;
-import com.EasyQ.API.models.Branch;
-import com.EasyQ.API.models.Tenant;
-import com.EasyQ.API.services.BranchService;
-import com.EasyQ.API.services.TenantService;
+import com.EasyQ.API.exception.NotFoundException;
+import com.EasyQ.API.exception.ServerException;
+import com.EasyQ.API.exception.UnprocessableRequestException;
+import com.EasyQ.API.model.Branch;
+import com.EasyQ.API.model.Tenant;
+import com.EasyQ.API.service.BranchService;
+import com.EasyQ.API.service.TenantService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +17,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
-import static com.EasyQ.API.Utils.Constants.USER_DELETION_SUCCESS_MESSAGE;
-import static com.EasyQ.API.Utils.Constants.USER_UPDATION_SUCCESS_MESSAGE;
-import static com.EasyQ.API.Utils.ErrorConstants.*;
+import static com.EasyQ.API.util.Constants.USER_DELETION_SUCCESS_MESSAGE;
+import static com.EasyQ.API.util.Constants.USER_UPDATION_SUCCESS_MESSAGE;
+import static com.EasyQ.API.util.ErrorConstants.*;
 
 @RestController
 @RequestMapping("/tenants")

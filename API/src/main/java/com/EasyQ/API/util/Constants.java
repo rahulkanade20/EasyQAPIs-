@@ -1,4 +1,4 @@
-package com.EasyQ.API.Utils;
+package com.EasyQ.API.util;
 
 public class Constants {
     public static final String USER_DELETION_SUCCESS_MESSAGE = "Entity with id {0} deleted successfully";

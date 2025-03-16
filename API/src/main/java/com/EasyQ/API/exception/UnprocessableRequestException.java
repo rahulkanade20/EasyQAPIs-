@@ -1,6 +1,4 @@
-package com.EasyQ.API.exceptions;
-
-import com.fasterxml.jackson.databind.ser.Serializers;
+package com.EasyQ.API.exception;
 
 import java.time.LocalDateTime;
 

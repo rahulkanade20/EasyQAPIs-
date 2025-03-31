@@ -42,6 +42,7 @@ public class SQManager {
     }
 
     public int addUser(User u) {
+        System.out.println("Total number of users in queue before adding new user: " + queue.size());
         if (status == 1) {
             if(queue == null) {
                 return -1;

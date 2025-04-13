@@ -1,11 +1,13 @@
 package com.EasyQ.API.queuemanagement;
 
 import java.util.LinkedList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class SQManager {
+    AtomicInteger userCount = new AtomicInteger(0);
     public static LinkedList<User> queue;
     private int status = 0;
 
@@ -42,7 +44,7 @@ public class SQManager {
     }
 
     public int addUser(User u) {
-        System.out.println("Total number of users in queue before adding new user: " + queue.size());
+        System.out.println("Total number of users in queue before adding new user: " + userCount.incrementAndGet());
         if (status == 1) {
             if(queue == null) {
                 return -1;

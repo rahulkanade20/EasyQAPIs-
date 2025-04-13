@@ -5,10 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 import org.example.config.RestTemplateConfig;
 import org.example.service.EasyQApiServiceI;
@@ -16,6 +14,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 
+// Using traditional threads with Runnable interface
 public class EasyQApiMultithreadedClient implements EasyQApiClientI {
 
     private final AnnotationConfigApplicationContext context;
@@ -40,28 +39,36 @@ public class EasyQApiMultithreadedClient implements EasyQApiClientI {
     public void loadTest() {
         long startTime = System.currentTimeMillis();
         int load = 10000;
-        List<Future<?>> tasks = new ArrayList<>();
+        int missedRequests = 0;
+        List<Thread> list = new ArrayList<>();
         for(int i = 1; i<=load; i++) {
-            tasks.add(executorService.submit(() -> {
+            Runnable task = () -> {
                 Map<String, Object> params = new HashMap<>();
                 params.put(QUEUE_ID, QUE_ID);
                 params.put(EMAIL, generateRandomEmail());
                 easyQApiService.get(URL, httpHeaders, params, String.class);
-            }));
+            };
+            Thread thread = new Thread(task);
+            list.add(thread);
+            thread.start();
         }
-        for(Future<?> f : tasks) {
+
+        for(Thread threat : list) {
             try {
-                f.get();
-            } catch (InterruptedException | ExecutionException e) {
+                threat.join();
+            } catch(Exception e) {
                 e.printStackTrace();
+                missedRequests++;
             }
         }
+
         long endTime = System.currentTimeMillis();
         System.out.println("Duration in milliseconds: " + (endTime - startTime));
         System.out.println("Duration in seconds: " + (endTime - startTime) / 1_000);
+        System.out.println("Number of requests dropped by server: " + missedRequests);
     }
 
-    public static String generateRandomEmail() {
+    public String generateRandomEmail() {
         return "test_" + UUID.randomUUID() + "@example.com";
     }
 }

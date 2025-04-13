@@ -18,8 +18,8 @@ public class Main {
 
 //        client.loadTest();
 //        multiThreadedClient.loadTest();
-//        multiThreadedClient1.loadTest();
+        multiThreadedClient1.loadTest();
 //        multiThreadedClient2.loadTest();
-        multiThreadedClient3.loadTest();
+//        multiThreadedClient3.loadTest();
     }
 }
